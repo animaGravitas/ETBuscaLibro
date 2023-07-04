@@ -1,0 +1,17 @@
+{% autoescape off %}
+Hola {{ user.username }},
+
+Queremos informarte que el libro "{{ book_store.book.title }}" ha disminuido su precio. A continuación se muestran los detalles:
+
+Título: {{ book_store.book.title }}
+Tienda: {{ book_store.store.name }}
+Precio anterior: {{ book_store.price }}
+Nuevo precio: {{ book_store.price|floatformat:2 }}
+Descuento: {{ book_store.discount }}
+
+Para obtener más información y realizar la compra, puedes visitar el siguiente enlace: {{ book_store.url_book }}
+
+¡No pierdas esta oportunidad!
+
+BuscaLibro
+{% endautoescape %}

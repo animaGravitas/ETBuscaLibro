@@ -1,0 +1,29 @@
+[
+    {
+        "model": "siteapp.store",
+        "pk": 1,
+        "fields": {
+            "name": "Buscalibre",
+            "web": "https://www.buscalibre.cl/",
+            "image": "https://statics.cdn1.buscalibre.com/images/buscalibre2018.png"
+        }
+    },
+    {
+        "model": "siteapp.store",
+        "pk": 3,
+        "fields": {
+            "name": "Antartica",
+            "web": "https://www.antartica.cl/",
+            "image": "https://www.america-retail.com/static//2012/03/Logo-Directorio-Libreria-Antartica.jpg"
+        }
+    },
+    {
+        "model": "siteapp.store",
+        "pk": 4,
+        "fields": {
+            "name": "Feria chilena del libro",
+            "web": "https://feriachilenadellibro.cl/",
+            "image": "https://cdn.picodi.com/cl/files/shop-description/f/feriachilenadellibro/logo-feria-chilena-del-libro.jpg"
+        }
+    }
+]

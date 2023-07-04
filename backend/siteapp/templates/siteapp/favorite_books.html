@@ -1,0 +1,39 @@
+{% extends "main/header.html" %}
+{% load static %}
+{% block content %}
+  <div class="container">
+    <h2 class="text-center" style="font-size: 37px; color: rgb(48, 47, 47);">Libros agregados a favoritos</h2> <br>
+    {% if favorite_books %}
+    <div class="row">
+      {% for book in favorite_books %}
+        <div class="col-md-12 mb-4">
+          <div class="card" style="margin: 0 auto;">
+            <div class="row no-gutters align-items-center">
+              <div class="col-md-1 d-flex justify-content-center">
+                <a href="http://localhost:3000/view/{{ book.id }}">
+                  <img src="{{ book.image }}" class="card-img align-self-center" alt="Book Image">
+                </a>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{ book.title }}</h5>
+                  <p class="card-text">Autor: {{ book.autor }}</p>
+                  <form action="{% url 'remove_favorite' book.id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Eliminar de favoritos</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    {% else %}
+      <div class="text-center">
+        <img src="https://img.freepik.com/foto-gratis/vista-botones-3d_23-2149917547.jpg?w=1060&t=st=1686536098~exp=1686536698~hmac=9dcbc6bab73267116013af49875f7e11871ee6cb489b110c444a508538d1de65" alt="No hay libros favoritos" style="width: 80%;">
+        <p style="font-size: 25px; font-family: Verdana, Geneva, Tahoma, sans-serif; color: rgb(48, 47, 47);">No se han agregado libros a favoritos</p>
+      </div>
+    {% endif %}
+  </div>
+{% endblock content %}

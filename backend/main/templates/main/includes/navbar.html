@@ -1,0 +1,39 @@
+<header class="site-header" style="margin-bottom: 100px;">
+    <nav class="navbar navbar-expand-md navbar-color fixed-top " style="background-color: #3f51b5; height: 70px;">
+        <div class="container" style="margin-left: -15px;">
+            <!-- Navbar Left Side -->
+            <div class="navbar-nav" style="margin-right: auto;">
+                <a class="nav-item nav-link" href="http://localhost:3000/" style="font-size: 21px; margin-right: 10px;">BuscaLibro</a>
+                <h2 style="font-size: 17px; color: #fff; text-align: justify;">Volver</h2>
+            </div>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarToggle" style="margin-right: 30px;">
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav ml-auto">
+                {% if user.is_superuser %}
+                    <a class="nav-item nav-link text-align" href="http://127.0.0.1:8000/admin">Admin</a>
+                    <a class="nav-item nav-link text-align" href="{% url 'series-create' %}">Nueva Categoría</a>
+                    <a class="nav-item nav-link text-align" href="{% url 'post-create' %}">Nuevo Post</a>
+                    <a class="nav-item nav-link text-align" href="{% url 'newsletter' %}">Enviar Correo</a>
+                {% endif %}
+                {% if 'login' in request.path %}
+                    <a class="nav-item nav-link" href="{% url 'login' %}" style="font-size: 21px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                        Iniciar sesión <i class="fas fa-sign-in-alt"></i>
+                    </a>
+                {% elif 'register' in request.path %}
+                    <a class="nav-item nav-link" href="{% url 'register' %}" style="font-size: 21px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                        Registrarse <i class="fas fa-user-plus"></i>
+                    </a>
+                {% elif 'profile' in request.path %}
+                    <a class="nav-item nav-link" href="{% url 'profile' user.username %}" style="font-size: 21px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                        {{ user.username }} <i class="fas fa-user"></i>
+                    </a>
+                {% elif 'favorite-books' in request.path %}
+                    <a class="nav-item nav-link text-align" style="font-size: 21px; font-family: Verdana, Geneva, Tahoma, sans-serif;" href="http://127.0.0.1:8000/siteapp/favorite-books/">Favoritos</a>
+                {% elif 'main' in request.path %}
+                    <a class="nav-item nav-link text-align" style="font-size: 21px; font-family: Verdana, Geneva, Tahoma, sans-serif;" href="http://127.0.0.1:8000/main">Publicaciones</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+</header>
